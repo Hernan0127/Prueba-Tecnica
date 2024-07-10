@@ -42,6 +42,7 @@ const RegisterSales = ({
                         disabled={!isFormValid}
                         fullWidth
                         startIcon={<SellIcon />}
+                        style={!isFormValid ? {} : { color: '#FFF' }}
                     >
                         Registrar Venta
                     </Button>

@@ -1,4 +1,3 @@
-// src/hooks/useInventory.ts
 import { useState } from 'react';
 import { InventoryItem, SaleSummaryItem } from '../types';
 
@@ -7,12 +6,12 @@ const useInventory = () => {
     const [salesSummary, setSalesSummary] = useState<SaleSummaryItem[]>([]);
 
     const addInventory = (item: InventoryItem) => {
-        setInventory((prevInventory) => [...prevInventory, item]);
+        setInventory((prevInventory) => [...prevInventory, item].sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()));
     };
 
     const registerSale = (litersSold: number) => {
         let remainingLiters = litersSold;
-        const updatedInventory = [...inventory];
+        const updatedInventory = [...inventory].sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
         const saleSummary: InventoryItem[] = [];
         let totalCost = 0;
 
@@ -40,7 +39,7 @@ const useInventory = () => {
         }
 
         if (remainingLiters > 0) {
-        throw new Error('Not enough inventory to complete the sale.');
+            throw new Error('Not enough inventory to complete the sale.');
         }
 
         setInventory(updatedInventory);

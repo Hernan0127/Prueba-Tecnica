@@ -15,13 +15,13 @@ const useStyles = makeStyles({
     },
     headerCell: {
         backgroundColor: '#3f51b5',
-        color: 'white',
+        color: '#FFF',
         fontWeight: 'bold',
         textAlign: 'center',
     },
     row: {
         '&:nth-of-type(odd)': {
-        backgroundColor: '#f2f2f2',
+            backgroundColor: '#f2f2f2',
         },
     },
     cell: {
@@ -31,8 +31,8 @@ const useStyles = makeStyles({
     subheader: {
         marginBottom: '1rem',
         fontWeight: 'bold',
-        backgroundColor: '#3f51b5',
-        color: 'white',
+        backgroundColor: '#8ab3cf',
+        color: '#FFF',
         padding: '0.5rem',
         borderRadius: '8px',
         width: 'fit-content',

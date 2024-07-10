@@ -70,6 +70,7 @@ const AddInventory = ({
                         disabled={!isFormValid}
                         fullWidth
                         startIcon={<AddIcon />}
+                        style={!isFormValid ? {} : { color: '#FFF' }}
                     >
                         Agregar Inventario
                     </Button>

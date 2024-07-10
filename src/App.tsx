@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Typography, Grid, Paper } from '@mui/material';
+import { Container, Typography, Grid, Paper, Box } from '@mui/material';
 import {
   AddInventory,
   RegisterSales,
@@ -13,13 +13,26 @@ function App() {
   const classes = useStyles();
   const { inventory, salesSummary, addInventory, registerSale } = useInventory();
 
+  const getTotalInventory = () => {
+    return inventory.reduce((total, item) => total + item.liters, 0);
+  };
+
   const availableLiters = inventory.reduce((acc, item) => acc + item.liters, 0);
 
   return (
     <Container className={classes.root}>
-      <Typography variant="h4" gutterBottom>
-        Sistema de Gestión de Inventario de Hidrocarburos
-      </Typography>
+      <Box textAlign="center" my={4}>
+        <Typography variant="h4" gutterBottom>
+          Sistema de Gestión de Inventario de Hidrocarburos
+        </Typography>
+      </Box>
+      <Box textAlign="center" my={2}>
+        <Paper className={classes.inventoryPaper}>
+          <Typography variant="h6">
+            Inventario Total Restante: {getTotalInventory()} Litros
+          </Typography>
+        </Paper>
+      </Box>
       <Grid container spacing={4}>
         <Grid item xs={12} md={6}>
           <Paper className={classes.paper}>
